@@ -7,6 +7,9 @@ import '../js/bootstrap_js_files.js'
 import '../packs/application.scss'
 import "@fortawesome/fontawesome-free/css/all.css"
 
+import "trix"
+import "@rails/actiontext"
+
 window.jQuery = $;
 window.$ = $;
 
