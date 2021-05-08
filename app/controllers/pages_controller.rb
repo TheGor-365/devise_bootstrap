@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def home
   end
 
@@ -7,4 +10,5 @@ class PagesController < ApplicationController
 
   def contacts
   end
+
 end
