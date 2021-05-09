@@ -9,4 +9,9 @@ module ApplicationHelper
     end.join("\n").html_safe
   end
 
+  def user_avatar user, width
+    image_path = user.avatar.present? ? user.avatar.url : 'default_avatar.jpg'
+    image_tag(image_path, width: width, height: width, class: 'rounded-circle')
+  end
+
 end
