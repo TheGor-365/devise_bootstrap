@@ -1,7 +1,6 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
-
   storage :file
 
   def store_dir
@@ -19,11 +18,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   version :thumb do
-    process resize_to_fit: [200, 160]
+    process resize_to_fit: [50, 50]
   end
 
   def extension_allowlist
-    %w(jpg jpeg png)
+    %w(jpg jpeg gif png)
   end
 
   def filename

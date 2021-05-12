@@ -1,0 +1,30 @@
+<div class="card shadow p-4 col-6">
+  
+  <h4>Defects</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th colspan="3">Controls</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @defects.each do |defect| %>
+      <tr>
+        <td><%= defect.type %></td>
+        <td><%= defect.description %></td>
+        <td><%= link_to 'Show', defect %></td>
+        <td><%= link_to 'Edit', edit_defect_path(defect) %></td>
+        <td><%= link_to 'Destroy', defect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New defect', new_defect_path, class: 'text-decoration-none' %>
+</div>

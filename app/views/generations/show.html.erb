@@ -1,0 +1,9 @@
+<div class="card shadow p-4 col-6">  
+  <p>
+    <strong>Title:</strong>
+    <%= @generation.title %>
+  </p>
+
+  <%= link_to 'Edit', edit_generation_path(@generation), class: 'text-decoration-none' %> <br>
+  <%= link_to 'Back', generations_path, class: 'text-decoration-none' %>
+</div>

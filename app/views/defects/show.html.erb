@@ -1,0 +1,14 @@
+<div class="card shadow p-4 col-6">  
+  <p>
+    <strong>Type:</strong>
+    <%= @defect.type %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @defect.description %>
+  </p>
+
+  <%= link_to 'Edit', edit_defect_path(@defect), class: 'text-decoration-none' %> <br>
+  <%= link_to 'Back', defects_path, class: 'text-decoration-none' %>
+</div>

@@ -1,0 +1,9 @@
+<div class="card shadow p-4 col-6">  
+  <p>
+    <strong>Image:</strong>
+    <%= @phone.image %>
+  </p>
+
+  <%= link_to 'Edit', edit_phone_path(@phone), class: 'text-decoration-none' %> <br>
+  <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
+</div>

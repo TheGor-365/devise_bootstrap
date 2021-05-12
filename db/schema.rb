@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_184953) do
+ActiveRecord::Schema.define(version: 2021_05_11_174640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,61 @@ ActiveRecord::Schema.define(version: 2021_05_09_184953) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "defects", force: :cascade do |t|
+    t.string "type"
+    t.string "description"
+    t.string "images"
+    t.string "videos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "phone_id", null: false
+    t.bigint "generation_id", null: false
+    t.bigint "repair_id", null: false
+    t.index ["generation_id"], name: "index_defects_on_generation_id"
+    t.index ["phone_id"], name: "index_defects_on_phone_id"
+    t.index ["repair_id"], name: "index_defects_on_repair_id"
+  end
+
+  create_table "generations", force: :cascade do |t|
+    t.string "title"
+    t.string "overview"
+    t.string "features"
+    t.string "vulnerability"
+    t.string "images"
+    t.string "videos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "phone_id", null: false
+    t.index ["phone_id"], name: "index_generations_on_phone_id"
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "model_title"
+    t.string "model_overview"
+    t.string "images"
+    t.string "videos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "repairs", force: :cascade do |t|
+    t.string "title"
+    t.string "spare_part"
+    t.string "description"
+    t.string "overview"
+    t.string "images"
+    t.string "videos"
+    t.string "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "phone_id", null: false
+    t.bigint "generation_id", null: false
+    t.bigint "defect_id", null: false
+    t.index ["defect_id"], name: "index_repairs_on_defect_id"
+    t.index ["generation_id"], name: "index_repairs_on_generation_id"
+    t.index ["phone_id"], name: "index_repairs_on_phone_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "username", default: "", null: false
@@ -76,4 +131,11 @@ ActiveRecord::Schema.define(version: 2021_05_09_184953) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "defects", "generations"
+  add_foreign_key "defects", "phones"
+  add_foreign_key "defects", "repairs"
+  add_foreign_key "generations", "phones"
+  add_foreign_key "repairs", "defects"
+  add_foreign_key "repairs", "generations"
+  add_foreign_key "repairs", "phones"
 end
