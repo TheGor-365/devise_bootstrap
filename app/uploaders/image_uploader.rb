@@ -25,7 +25,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  def filename
-    "something.jpg" if original_filename
-  end
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 end

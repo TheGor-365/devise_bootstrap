@@ -14,4 +14,12 @@ module ApplicationHelper
     image_tag(image_path, width: width, height: width, class: 'rounded-circle')
   end
 
+  def images_middle phones, width
+    images_urls = phones.images.present? ? phones.images_urls : 'default_avatar.jpg'
+
+    images_urls.each do |image|
+      image_tag(image, width: '300', height: width, class: 'rounded')
+    end
+  end
+
 end

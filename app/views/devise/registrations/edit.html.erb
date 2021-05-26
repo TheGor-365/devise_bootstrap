@@ -1,16 +1,17 @@
-<div class="edit-page pt-5 pb-5">
+<div class="edit-page pt-3 pb-5">
 
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <div class="card p-5">
+        <div class="card p-5 shadow">
+
           <h5 class="mb-5">Edit <%= resource_name.to_s.humanize %></h5>
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
 
             <div class="mb-3">
@@ -49,7 +50,10 @@
             </div>
 
             <div class="mb-3">
-              <%= f.label 'Add your current password to confirm changes' %><br> <small class="text-muted">(we need your current password to confirm your changes)</small>
+              <%= f.label 'Add your current password to confirm changes' %><br>
+              <small class="text-muted">
+                (we need your current password to confirm your changes)
+              </small>
               <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
             </div>
 
@@ -63,7 +67,7 @@
 
     <div class="row mt-5">
       <div class="col-6">
-        <div class="card p-5">
+        <div class="card p-5 shadow">
           <small><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-decoration-none text-danger' %></small>
         </div>
       </div>

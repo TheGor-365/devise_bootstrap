@@ -51,6 +51,6 @@ class GenerationsController < ApplicationController
   end
 
   def generation_params
-    params.require(:generation).permit(:title, :overview, :features, :vulnerability, :images, :videos)
+    params.require(:generation).permit(:title, :overview, :features, :vulnerability, :images, :images_cache, :videos)
   end
 end

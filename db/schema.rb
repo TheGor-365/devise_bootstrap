@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_174640) do
   create_table "phones", force: :cascade do |t|
     t.string "model_title"
     t.string "model_overview"
-    t.string "images"
+    t.string "images", default: [], array: true
     t.string "videos"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

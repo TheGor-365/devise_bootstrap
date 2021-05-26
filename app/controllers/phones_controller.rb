@@ -39,6 +39,7 @@ class PhonesController < ApplicationController
 
   def destroy
     @phone.destroy
+
     respond_to do |format|
       format.html { redirect_to phones_url, notice: "Phone was successfully destroyed." }
     end
@@ -51,6 +52,6 @@ class PhonesController < ApplicationController
   end
 
   def phone_params
-    params.require(:phone).permit(:model_title, :model_overview, :images, :videos)
+    params.require(:phone).permit(:model_title, :model_overview, { images: [] }, :images_cache, :videos)
   end
 end
