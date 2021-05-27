@@ -12,8 +12,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 
-
-
 gem 'pg'
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'

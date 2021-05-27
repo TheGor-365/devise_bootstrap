@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_174640) do
+ActiveRecord::Schema.define(version: 2021_05_27_120143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(version: 2021_05_11_174640) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.integer "views", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "repairs", force: :cascade do |t|
     t.string "title"
     t.string "spare_part"
@@ -112,6 +119,13 @@ ActiveRecord::Schema.define(version: 2021_05_11_174640) do
     t.index ["defect_id"], name: "index_repairs_on_defect_id"
     t.index ["generation_id"], name: "index_repairs_on_generation_id"
     t.index ["phone_id"], name: "index_repairs_on_phone_id"
+  end
+
+  create_table "uploaders", force: :cascade do |t|
+    t.string "title"
+    t.text "info"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
