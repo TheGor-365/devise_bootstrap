@@ -1,21 +1,25 @@
-<div class="card shadow p-4 col-6">
+<div class="card p-4">
 
-    <strong><%= @phone.model_title %></strong><br>
+  <div class="row">
+    <h1 class="display-6 mb-3"><%= @phone.model_title %></h1>
+    <br>
 
     <% @phone.images.each do |image| %>
-      <div class="row">
-        <div class="col p-1 m-2 rounded shadow">
-          <div class="col-3">
-            <%= image_tag(image.url, width: '300', class: 'rounded') %><br>
-          </div>
-          <div class="col-2">
-            <%= image.identifier %>
-          </div>
-        </div>
+      <div class="col text-center">
+        <%= image_tag(image.url, width: '300', class: 'rounded') %>
       </div>
     <% end %>
+  </div>
 
+  <div class="row mt-5 mb-2">
+    <strong class="mb-3">Overview</strong>
+    <div class="p-4 card shadow-sm bg-light">
+      <small><%= @phone.model_overview %></small>
+    </div>
+  </div>
 
-  <%= link_to 'Edit', edit_phone_path(@phone), class: 'text-decoration-none' %>
-  <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Edit', edit_phone_path(@phone), class: 'text-decoration-none me-2' %>
+    <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
+  </div>
 </div>

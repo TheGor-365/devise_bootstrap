@@ -25,7 +25,7 @@
     <div class="mb-3">
       <%= form.label :images, class: 'form-label mb-3' %><br>
       <%= form.file_field :images, type: 'file', multiple: true, class: 'form-control' %>
-      <% if phone.images? %>
+      <% if phone.images_cache %>
         <% phone.images_cache.each do |image_cache| %>
           <%= form.hidden_field :image_cache %>
         <% end %>
@@ -35,7 +35,7 @@
     <div class="mt-3 mb-3">
       <% if phone.images? %>
         <% phone.images.each do |image| %>
-          <%= image_tag(phone.image.url, width: '200') %>
+          <%= image_tag(image.url, width: '200') %>
         <% end %>
       <% end %>
     </div>
