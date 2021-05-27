@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get 'terms',    to: 'pages#terms'
   get 'contacts', to: 'pages#contacts'
 
+  get 'video_recordings/new'
+
 end
