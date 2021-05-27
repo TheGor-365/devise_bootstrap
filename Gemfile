@@ -31,6 +31,8 @@ gem 'sidekiq'
 gem 'mailcatcher'
 gem 'mail'
 gem "actiontext"
+gem 'paperclip', '~> 6.1'
+gem 'paperclip-av-transcoder', '~> 0.6.4'
 
 group :development, :test do
   gem 'shoulda-matchers'
