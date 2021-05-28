@@ -1,25 +1,34 @@
-<div class="card p-4">
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-1"><%= @phone.model_title %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
+</div>
 
-  <div class="row">
-    <h1 class="display-6 mb-3"><%= @phone.model_title %></h1>
-    <br>
+<div class="row p-5 shadow bg-white">
+  <span class="display-4 mb-3">Photos | <span class="text-muted display-6 align-middle"><%= @phone.model_title %></span></span>
+  <br>
 
-    <% @phone.images.each do |image| %>
-      <div class="col text-center">
-        <%= image_tag(image.url, width: '300', class: 'rounded') %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="row mt-5 mb-2">
-    <strong class="mb-3">Overview</strong>
-    <div class="p-4 card shadow-sm bg-light">
-      <small><%= @phone.model_overview %></small>
+  <% @phone.images.each do |image| %>
+    <div class="col text-center mb-5">
+      <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
     </div>
-  </div>
+  <% end %>
+</div>
 
-  <div class="list-inline-item mt-3">
-    <%= link_to 'Edit', edit_phone_path(@phone), class: 'text-decoration-none me-2' %>
-    <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
+
+<div class="row mt-5 mb-2 p-5 shadow bg-white">
+  <span class="display-6 mb-3">Overview</span>
+  <small class="text-muted"><%= @phone.model_overview %></small>
+</div>
+
+<div class="row mt-5 p-5 mb-4 bg-white shadow">
+  <span class="display-6 mb-3">Video</span>
+  <small class="text-muted mb-5"><%= @phone.videos.identifier %></small>
+
+  <div class="col">
+    <%= video_tag(@phone.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto') %>
   </div>
+</div>
+
+<div class="list-inline-item mt-3">
+  <%= link_to 'Edit', edit_phone_path(@phone), class: 'text-decoration-none me-2' %>
+  <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
 </div>

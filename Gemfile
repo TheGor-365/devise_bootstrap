@@ -21,6 +21,7 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'mini_magick'
 gem 'carrierwave'
+gem "carrierwave-video"
 gem 'cancancan'
 gem 'activerecord-session_store'
 gem 'gmaps4rails'
