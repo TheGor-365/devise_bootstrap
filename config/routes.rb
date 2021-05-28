@@ -5,10 +5,13 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :generations
-  resources :phones
   resources :repairs
   resources :defects
   resources :articles
+
+  resources :phones do
+    resources :images, only: [:create]
+  end
 
   get 'terms',    to: 'pages#terms'
   get 'contacts', to: 'pages#contacts'
