@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :articles
 
   resources :phones do
-    resources :images, only: [:create]
+    resources :images, only: [ :create, :destroy ]
   end
 
   get 'terms',    to: 'pages#terms'
