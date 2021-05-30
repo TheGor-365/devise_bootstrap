@@ -5,8 +5,8 @@ class CreateRepairs < ActiveRecord::Migration[6.1]
       t.string :spare_part
       t.string :description
       t.string :overview
-      t.string :images
-      t.string :videos
+      t.string :images, array: true, default: []
+      t.string :videos, array: true, default: []
       t.string :price
 
       t.timestamps

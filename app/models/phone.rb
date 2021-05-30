@@ -1,7 +1,9 @@
 class Phone < ApplicationRecord
 
   mount_uploaders :images, ImageUploader
-  mount_uploader :videos, VideosUploader
+  mount_uploaders :videos, VideosUploader
+
+  has_rich_text :content
 
   has_one :generation
   has_many :defects

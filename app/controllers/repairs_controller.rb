@@ -51,6 +51,6 @@ class RepairsController < ApplicationController
   end
 
   def repair_params
-    params.require(:repair).permit(:title, :spare_part, :description, :overview, :images, :images_cache, :videos, :price)
+    params.require(:repair).permit(:title, :spare_part, :description, :overview, { images: [] }, :images_cache, { videos: [] }, :price)
   end
 end

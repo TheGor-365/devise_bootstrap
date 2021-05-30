@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
   end
 
   create_table "defects", force: :cascade do |t|
-    t.string "type"
+    t.string "modules", default: [], array: true
     t.string "description"
-    t.string "images"
-    t.string "videos"
+    t.string "images", default: [], array: true
+    t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "phone_id", null: false
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.string "overview"
     t.string "features"
     t.string "vulnerability"
-    t.string "images"
-    t.string "videos"
+    t.string "images", default: [], array: true
+    t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "phone_id", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.string "model_title"
     t.string "model_overview"
     t.string "images", default: [], array: true
-    t.string "videos"
+    t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -108,8 +108,8 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.string "spare_part"
     t.string "description"
     t.string "overview"
-    t.string "images"
-    t.string "videos"
+    t.string "images", default: [], array: true
+    t.string "videos", default: [], array: true
     t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -121,13 +121,6 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.index ["phone_id"], name: "index_repairs_on_phone_id"
   end
 
-  create_table "uploaders", force: :cascade do |t|
-    t.string "title"
-    t.text "info"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "username", default: "", null: false
@@ -135,6 +128,15 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"

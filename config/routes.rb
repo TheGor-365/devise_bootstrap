@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   resources :posts
   resources :generations
   resources :repairs
-  resources :defects
   resources :articles
+  
+  resources :defects do
+    resources :images, only: [ :create, :destroy ]
+  end
 
   resources :phones do
     resources :images, only: [ :create, :destroy ]

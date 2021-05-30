@@ -18,6 +18,10 @@ class VideosUploader < CarrierWave::Uploader::Base
     original_filename.chomp(File.extname(original_filename)) + '.mp4'
   end
 
+  version :thumb do
+    process encode_video: [:mp4, resolution: "50x50"]
+  end
+
   # def default_url(*args)
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
@@ -26,10 +30,6 @@ class VideosUploader < CarrierWave::Uploader::Base
 
   # def scale(width, height)
   #   # do something
-  # end
-
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
   # end
 
   # def extension_allowlist

@@ -34,6 +34,7 @@
           </a>
 
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+            <li><%= link_to 'Posts', posts_path, class: 'dropdown-item' %></li>
             <li><%= link_to 'Articles', articles_path, class: 'dropdown-item' %></li>
             <li><%= link_to 'New article', new_article_path, class: 'dropdown-item' %></li>
             <li><%= link_to 'Settings', edit_user_registration_path, class: "dropdown-item" %></li>

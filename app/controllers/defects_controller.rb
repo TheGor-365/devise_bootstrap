@@ -52,6 +52,6 @@ class DefectsController < ApplicationController
   end
 
   def defect_params
-    params.require(:defect).permit(:type, :description, :images, :images_cache, :videos)
+    params.require(:defect).permit(:modules, :description, { images: [] }, :images_cache, { videos: [] })
   end
 end

@@ -21,7 +21,10 @@
 
 <div class="row mt-5 p-5 mb-4 bg-white shadow">
   <span class="display-6 mb-3">Video</span>
-  <small class="text-muted mb-5"><%= @phone.videos.identifier %></small>
+
+  <% @phone.videos.each do |video| %>
+    <small class="text-muted mb-5"><%= video.identifier %></small>
+  <% end %>
 
   <div class="col">
     <%= video_tag(@phone.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>

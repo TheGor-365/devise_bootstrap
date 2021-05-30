@@ -4,7 +4,7 @@ class CreatePhones < ActiveRecord::Migration[6.1]
       t.string :model_title
       t.string :model_overview
       t.string :images, array: true, default: []
-      t.string :videos
+      t.string :videos, array: true, default: []
 
       t.timestamps
     end

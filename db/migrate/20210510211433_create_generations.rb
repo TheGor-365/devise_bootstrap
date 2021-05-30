@@ -5,8 +5,8 @@ class CreateGenerations < ActiveRecord::Migration[6.1]
       t.string :overview
       t.string :features
       t.string :vulnerability
-      t.string :images
-      t.string :videos
+      t.string :images, array: true, default: []
+      t.string :videos, array: true, default: []
 
       t.timestamps
     end

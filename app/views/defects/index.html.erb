@@ -1,5 +1,5 @@
 <div class="card shadow p-4 col-6">
-  
+
   <h4>Defects</h4>
 
   <table class="table">
@@ -14,7 +14,7 @@
     <tbody>
       <% @defects.each do |defect| %>
       <tr>
-        <td><%= defect.type %></td>
+        <td><%= defect.modules %></td>
         <td><%= defect.description %></td>
         <td><%= link_to 'Show', defect %></td>
         <td><%= link_to 'Edit', edit_defect_path(defect) %></td>
