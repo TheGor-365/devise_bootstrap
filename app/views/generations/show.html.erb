@@ -1,9 +1,50 @@
-<div class="card shadow p-4 col-6">  
-  <p>
-    <strong>Title:</strong>
-    <%= @generation.title %>
-  </p>
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-1">Generation <%= @generation.title %> | <span class="text-muted display-6 align-middle"><strong>knowlege base</strong></span></span></p>
+</div>
 
-  <%= link_to 'Edit', edit_generation_path(@generation), class: 'text-decoration-none' %> <br>
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-4 align-middle mb-5"><%= @generation.title %> | <span class="text-muted display-6 align-middle">production period</span></span></p>
+  <br>
+  <%= @generation.production_period %>
+</div>
+
+<div class="row p-5 shadow bg-white mb-5">
+  <span class="display-4 mb-5"><%= @generation.title %> | <span class="text-muted display-6 align-middle">features</span></span>
+  <br>
+  <%= @generation.features %>
+</div>
+
+<div class="row p-5 shadow bg-white mb-5">
+  <span class="display-4 mb-5"><%= @generation.title %> | <span class="text-muted display-6 align-middle">vulnerability</span></span>
+  <br>
+  <%= @generation.vulnerability %>
+</div>
+
+<div class="row p-5 shadow bg-white">
+  <span class="display-4 mb-5">Photos | <span class="text-muted display-6 align-middle">iPhone generation <%= @generation.title %></span></span>
+  <br>
+
+  <% @generation.images.each do |image| %>
+    <div class="col text-center mb-5">
+      <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row mt-5 p-5 mb-4 bg-white shadow">
+  <span class="display-6 mb-3">Videos  | <span class="text-muted display-6 align-middle">iPhone generation <%= @generation.title %></span></span>
+  <br>
+
+  <% @generation.videos.each do |video| %>
+    <small class="text-muted mb-5"><%= video.identifier %></small>
+  <% end %>
+
+  <div class="col">
+    <%= video_tag(@generation.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+  </div>
+</div>
+
+<div class="list-inline-item mt-3">
+  <%= link_to 'Edit', edit_generation_path(@generation), class: 'text-decoration-none me-2' %>
   <%= link_to 'Back', generations_path, class: 'text-decoration-none' %>
 </div>

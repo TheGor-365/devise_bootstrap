@@ -36,11 +36,11 @@
       <%= form.label "Change #{defect.modules} images", class: 'form-label mb-3' %><br>
       <%= form.file_field :images, type: 'file', multiple: true, class: 'form-control' %>
 
-      <%# if defect.images_cache %>
-        <%# defect.images_cache.each do |image_cache| %>
+      <% if defect.images_cache.present? %>
+        <% defect.images_cache.each do |image_cache| %>
           <%= form.hidden_field :images_cache %>
-        <%# end %>
-      <%# end %>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="mt-3 mb-3">

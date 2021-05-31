@@ -1,8 +1,10 @@
-<div class="card shadow p-4 col-6">  
-  <h4>Editing Generation</h4>
+<div class="card shadow p-4 col-10">
+  <h4 class="display-3 mb-5">Editing Generation</h4>
+</div>
 
-  <%= render 'form', generation: @generation %>
+<%= render 'form', generation: @generation %>
 
-  <%= link_to 'Show', @generation, class: 'text-decoration-none' %> <br>
+<div class="list-inline-item mt-3">
+  <%= link_to 'Show', @generation, class: 'text-decoration-none me-3' %> <br>
   <%= link_to 'Back', generations_path, class: 'text-decoration-none' %>
 </div>

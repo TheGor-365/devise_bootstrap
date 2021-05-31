@@ -1,11 +1,12 @@
-<div class="card shadow p-4 col-10">
+<div class="card shadow p-4 col-12">
 
-  <h4>Phones</h4>
+  <h4 class="display-3 mb-5">Phones</h4>
 
-  <table class="table">
+  <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>id</th>
+        <th>Generation</th>
         <th>Model title</th>
         <th>Images</th>
         <th>Videos</th>
@@ -18,13 +19,18 @@
       <% @phones.each do |phone| %>
         <tr>
           <td class="align-middle"><%= phone.id %></td>
+          <td class="align-middle"><%= phone.generation_id %></td>
           <td class="align-middle"><%= phone.model_title %></td>
           <td>
             <% phone.images.each do |image| %>
               <%= image_tag(image.url, width: '30', class: 'rounded') %>
             <% end %>
           </td>
-          <td><%= video_tag(phone.videos, width: '40', height: '40', controls: true, class: 'rounded') %></td>
+          <td>
+            <% phone.videos.each do |video| %>
+              <%= video_tag(video.url, width: '40', height: '40', controls: true, class: 'rounded') %>
+            <% end %>
+          </td>
           <td class="align-middle"><small class="text-muted"><%= phone.model_overview %></small></td>
 
           <td class="align-middle"><%= link_to 'Show', phone, class: 'text-decoration-none' %></td>

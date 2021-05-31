@@ -12,13 +12,26 @@
   <% end %>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
+    <%= form.label :generation %><br>
+
+    <div class="form-check">
+      <%= form.radio_button(:generation_id, '5', class: 'form-check-input') %>
+      <%= form.label :generation_5 %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button(:generation_id, '6', class: 'form-check-input') %>
+      <%= form.label :generation_6 %>
+    </div>
+  </div>
+
+  <div class="mb-3 card shadow mt-5 p-5 col-10">
     <%= form.label :model_title %>
     <%= form.text_field :model_title, class: 'form-control' %>
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
-    <%= form.label :model_overview %>
-    <%= form.text_field :model_overview, class: 'form-control' %>
+    <%= form.label :model_overview %><br>
+    <%= form.rich_text_area :content, class: 'form-control' %>
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
@@ -26,7 +39,7 @@
       <%= form.label "Change #{phone.model_title} images", class: 'form-label mb-3' %><br>
       <%= form.file_field :images, id: 'new-images-field', type: 'file', multiple: true, class: 'form-control' %>
 
-      <% if phone.images_cache %>
+      <% if phone.images_cache.present? %>
         <% phone.images_cache.each do |image_cache| %>
           <%= form.hidden_field :image_cache %>
         <% end %>

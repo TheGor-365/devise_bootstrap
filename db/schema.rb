@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "phone_id", null: false
-    t.bigint "generation_id", null: false
-    t.bigint "repair_id", null: false
+    t.bigint "phone_id"
+    t.bigint "generation_id"
+    t.bigint "repair_id"
     t.index ["generation_id"], name: "index_defects_on_generation_id"
     t.index ["phone_id"], name: "index_defects_on_phone_id"
     t.index ["repair_id"], name: "index_defects_on_repair_id"
@@ -76,14 +76,14 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
 
   create_table "generations", force: :cascade do |t|
     t.string "title"
-    t.string "overview"
+    t.string "production_period"
     t.string "features"
     t.string "vulnerability"
     t.string "images", default: [], array: true
     t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "phone_id", null: false
+    t.bigint "phone_id"
     t.index ["phone_id"], name: "index_generations_on_phone_id"
   end
 
@@ -113,9 +113,9 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "phone_id", null: false
-    t.bigint "generation_id", null: false
-    t.bigint "defect_id", null: false
+    t.bigint "phone_id"
+    t.bigint "generation_id"
+    t.bigint "defect_id"
     t.index ["defect_id"], name: "index_repairs_on_defect_id"
     t.index ["generation_id"], name: "index_repairs_on_generation_id"
     t.index ["phone_id"], name: "index_repairs_on_phone_id"

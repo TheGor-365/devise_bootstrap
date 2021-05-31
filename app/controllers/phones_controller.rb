@@ -52,6 +52,6 @@ class PhonesController < ApplicationController
   end
 
   def phone_params
-    params.require(:phone).permit(:model_title, :model_overview, { images: [] }, :images_cache, { videos: [] })
+    params.require(:phone).permit(:generation_id, :model_title, :model_overview, { images: [] }, :images_cache, { videos: [] })
   end
 end
