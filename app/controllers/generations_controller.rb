@@ -51,6 +51,15 @@ class GenerationsController < ApplicationController
   end
 
   def generation_params
-    params.require(:generation).permit(:title, :production_period, :features, :vulnerability, { images: [] }, :images_cache, { videos: [] })
+    params.require(:generation).permit(
+      :phone_id,
+      :title,
+      :production_period,
+      :features,
+      :vulnerability,
+      :images_cache,
+      { images: [] },
+      { videos: [] }
+    )
   end
 end

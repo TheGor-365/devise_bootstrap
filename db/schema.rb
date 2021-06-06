@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
   end
 
   create_table "defects", force: :cascade do |t|
-    t.string "modules", default: [], array: true
+    t.string "modules", default: ["display", "corpus", "mainboard", "speaker", "rear camera", "front-facing camera", "battery", "lower loop", "higher loop", "home button"], array: true
     t.string "description"
     t.string "images", default: [], array: true
     t.string "videos", default: [], array: true
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
   end
 
   create_table "phones", force: :cascade do |t|
+    t.string "generation_id"
     t.string "model_title"
     t.string "model_overview"
     t.string "images", default: [], array: true
