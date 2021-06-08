@@ -1,12 +1,18 @@
-<div class="card shadow p-4 col-6">
+<div class="card shadow p-4 col-12">
 
-  <h4>Defects</h4>
+  <h4 class="display-3 mb-5">Defects</h4>
 
-  <table class="table">
+  <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Type</th>
+        <th>id</th>
+        <th>generation_id</th>
+        <th>phone_id</th>
+        <th>repair_id</th>
+        <th>Modules</th>
         <th>Description</th>
+        <th>Images</th>
+        <th>Videos</th>
         <th colspan="3">Controls</th>
       </tr>
     </thead>
@@ -14,11 +20,26 @@
     <tbody>
       <% @defects.each do |defect| %>
       <tr>
-        <td><%= defect.modules %></td>
-        <td><%= defect.description %></td>
-        <td><%= link_to 'Show', defect %></td>
-        <td><%= link_to 'Edit', edit_defect_path(defect) %></td>
-        <td><%= link_to 'Destroy', defect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="align-middle"><%= defect.id %></td>
+        <td class="align-middle"><%= defect.generation_id %></td>
+        <td class="align-middle"><%= defect.phone_id %></td>
+        <td class="align-middle"><%= defect.repair_id %></td>
+        <td class="align-middle"><%= defect.modules %></td>
+        <td class="align-middle"><%= defect.description %></td>
+        <td class="align-middle">
+          <% defect.images.each do |image| %>
+            <%= image_tag(image.url, width: '30', class: 'rounded') %>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% defect.videos.each do |video| %>
+            <%= video_tag(video.url, width: '40', height: '40', controls: true, class: 'rounded') %>
+          <% end %>
+        </td>
+
+        <td class="align-middle"><%= link_to 'Show', defect, class: 'text-decoration-none' %></td>
+        <td class="align-middle"><%= link_to 'Edit', edit_defect_path(defect), class: 'text-decoration-none' %></td>
+        <td class="align-middle"><%= link_to 'Destroy', defect, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-decoration-none' %></td>
       </tr>
       <% end %>
     </tbody>

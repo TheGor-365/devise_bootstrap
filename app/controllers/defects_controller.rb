@@ -48,7 +48,7 @@ class DefectsController < ApplicationController
   private
 
   def set_defect
-    @defect = defect.find(params[:id])
+    @defect = Defect.find(params[:id])
   end
 
   def defect_params
