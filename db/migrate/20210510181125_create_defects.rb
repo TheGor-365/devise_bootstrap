@@ -1,6 +1,7 @@
 class CreateDefects < ActiveRecord::Migration[6.1]
   def change
     create_table :defects do |t|
+      t.string :title
       t.string :modules, array: true, default: [
         'display',
         'corpus',
