@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
 
   create_table "defects", force: :cascade do |t|
     t.string "title"
-    t.string "modules", default: ["display", "corpus", "mainboard", "speaker", "rear camera", "front-facing camera", "battery", "lower loop", "higher loop", "home button"], array: true
+    t.string "modules", default: [], array: true
     t.string "description"
     t.string "images", default: [], array: true
     t.string "videos", default: [], array: true
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
 
   create_table "repairs", force: :cascade do |t|
     t.string "title"
-    t.json "spare_parts", default: {"display"=>false, "corpus"=>false, "mainboard"=>false, "speaker"=>false, "rear camera"=>false, "front facing camera"=>false, "battery"=>false, "lower loop"=>false, "higher loop"=>false, "home button"=>false}
+    t.json "spare_parts", default: []
     t.string "description"
     t.string "overview"
     t.string "images", default: [], array: true
