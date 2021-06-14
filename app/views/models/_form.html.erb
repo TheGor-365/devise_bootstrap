@@ -1,0 +1,125 @@
+<%= form_with(model: model, html: { multipart: true }) do |form| %>
+
+  <% if model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(model.errors.count, "error") %> prohibited this model from being saved:</h2>
+
+      <ul>
+        <% model.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 card shadow mt-5 p-5 col-10">
+    <%= form.label :generation %><br>
+
+    <div class="form-check">
+      <%= form.radio_button(:generation_id, '1', class: 'form-check-input') %>
+      <%= form.label :generation_5 %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button(:generation_id, '2', class: 'form-check-input') %>
+      <%= form.label :generation_6 %>
+    </div>
+  </div>
+
+  <div class="mb-3 card shadow mt-5 p-5 col-10">
+    <%= form.label :phone_id %><br>
+
+    <div class="form-check">
+      <%= form.radio_button(:phone_id, '1', class: 'form-check-input') %>
+      <%= form.label :phone_5 %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button(:phone_id, '2', class: 'form-check-input') %>
+      <%= form.label :phone_6 %>
+    </div>
+  </div>
+
+  <div class="mb-3 card shadow mt-5 p-5 col-10">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3 card shadow mt-5 p-5 col-10">
+    <div class="mb-3">
+      <%= form.label "Change #{model.name} images", class: 'form-label mb-3' %><br>
+      <%= form.file_field :images, id: 'new-images-field', type: 'file', multiple: true, class: 'form-control' %>
+
+      <%# if model.images_cache.size > 1 %>
+        <%# model.images_cache.each do |image_cache| %>
+          <%#= form.hidden_field :image_cache %>
+        <%# end %>
+      <%# else %>
+        <%= form.hidden_field :images_cache %>
+      <%# end %>
+    </div>
+
+    <div class="mt-3 mb-3">
+      <% if model.images? %>
+        <% model.images.each do |image| %>
+          <%= image_tag(image.url, width: '100') %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="mt-3 mb-3 col">
+      <%= form.label "Choosed images", class: 'form-label mb-3' %><br>
+      <img id="image-prevew" src="#" width="300" height="200" class="img-thumbnail" />
+    </div>
+  </div>
+
+  <% if model.images.size > 0 %>
+    <div class="mb-3 card shadow mt-5 p-5 col-10">
+      <%= form.label "Add more images for #{model.name}", class: 'form-label mb-3' %><br>
+      <%= form.file_field :images, multiple: true, class: 'form-control' %>
+
+      <div class="mt-3 mb-3">
+        <% if model.images? %>
+          <% model.images.each do |image| %>
+            <%= image_tag(image.url, width: '100') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mb-3 card shadow mt-5 p-5 col-10">
+    <%= form.label "Change #{model.name} videos", class: 'form-label mb-3' %><br>
+    <%= form.file_field :videos, multiple: true, type: 'file', class: 'form-control' %>
+
+    <div class="mt-5">
+      <% if model.videos? %>
+        <%= video_tag(model.videos, width: '340', height: '180', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-5 mb-3 col-10">
+    <%= form.submit class: 'btn btn-sm btn-success' %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#image-prevew').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#new-images-field").change(function(){
+    readURL(this);
+  });
+
+</script>

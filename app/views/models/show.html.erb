@@ -1,0 +1,23 @@
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-1"><%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
+</div>
+
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-6">Generation <%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
+  <%= @model.generation_id %>
+</div>
+
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-6">Phone <%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
+  <%= @model.phone_id %>
+</div>
+
+<div class="row p-5 shadow bg-white mb-5">
+  <p class="align-middle"><span class="display-6"><%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong></span></span></p>
+  <%= @model.name %>
+</div>
+
+<div class="list-inline-item mt-3">
+  <%= link_to 'Edit', edit_model_path(@model), class: 'text-decoration-none me-3' %>
+  <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+</div>

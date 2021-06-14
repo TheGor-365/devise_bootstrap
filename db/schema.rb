@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_120143) do
+ActiveRecord::Schema.define(version: 2021_06_14_161528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.index ["repair_id"], name: "index_defects_on_repair_id"
   end
 
+  create_table "defects_repairs", id: false, force: :cascade do |t|
+    t.bigint "defect_id", null: false
+    t.bigint "repair_id", null: false
+    t.index ["defect_id", "repair_id"], name: "index_defects_repairs_on_defect_id_and_repair_id"
+  end
+
   create_table "generations", force: :cascade do |t|
     t.string "title"
     t.string "production_period"
@@ -86,6 +92,28 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "phone_id"
     t.index ["phone_id"], name: "index_generations_on_phone_id"
+  end
+
+  create_table "models", force: :cascade do |t|
+    t.string "generation_id"
+    t.string "phone_id"
+    t.string "name"
+    t.string "images", default: [], array: true
+    t.string "videos", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mods", force: :cascade do |t|
+    t.string "generation_id"
+    t.string "phone_id"
+    t.string "model_id"
+    t.string "name"
+    t.string "manufacturer"
+    t.string "images", default: [], array: true
+    t.string "videos", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "phones", force: :cascade do |t|
@@ -121,6 +149,18 @@ ActiveRecord::Schema.define(version: 2021_05_27_120143) do
     t.index ["defect_id"], name: "index_repairs_on_defect_id"
     t.index ["generation_id"], name: "index_repairs_on_generation_id"
     t.index ["phone_id"], name: "index_repairs_on_phone_id"
+  end
+
+  create_table "spare_parts", force: :cascade do |t|
+    t.string "generation_id"
+    t.string "phone_id"
+    t.string "mod_id"
+    t.string "name"
+    t.string "manufacturer"
+    t.string "images", default: [], array: true
+    t.string "videos", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

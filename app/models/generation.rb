@@ -9,5 +9,7 @@ class Generation < ApplicationRecord
   has_many :phones
   has_many :defects
   has_many :repairs
+  has_many :models
+  has_many :mods
 
 end

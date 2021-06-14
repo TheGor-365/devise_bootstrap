@@ -1,0 +1,10 @@
+<div class="card shadow p-4 col-10">
+  <h1 class="display-6">Editing <span class="text-muted"><%= @mod.name %></span></h1>
+</div>
+
+<%= render 'form', mod: @mod %>
+
+<div class="list-inline-item mt-3">
+  <%= link_to 'Show', @mod, class: 'text-decoration-none me-3' %> 
+  <%= link_to 'Back', mods_path, class: 'text-decoration-none' %>
+</div>

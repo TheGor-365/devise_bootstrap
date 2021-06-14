@@ -7,13 +7,16 @@
       </h5>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'iPhone generations', generations_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to 'iPhones', phones_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to 'iPhones defects', defects_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to 'iPhones repair', repairs_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to 'Terms', terms_path, class: "nav-link px-2 link-dark" %></li>
-        <li><%= link_to 'Contacts', contacts_path, class: "nav-link px-2 link-dark" %></li>
+        <li><small><%= link_to 'Generations', generations_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Models', models_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Modules', mods_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Spare parts', spare_parts_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'iPhones', phones_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Defects', defects_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Repair', repairs_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Terms', terms_path, class: "nav-link px-2 link-dark" %></small></li>
+        <li><small><%= link_to 'Contacts', contacts_path, class: "nav-link px-2 link-dark" %></small></li>
       </ul>
 
       <% if user_signed_in? %>
@@ -23,7 +26,6 @@
         </ul>
 
         <div class="dropdown text-end">
-
           <a
             href="#"
             class="d-block link-dark text-decoration-none dropdown-toggle"
