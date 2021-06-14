@@ -4,7 +4,9 @@
 
 <div class="row mt-5 mb-2 p-5 shadow bg-white">
   <span class="display-6 mb-3">Broken modules</span>
-  <%= @defect.modules %>
+  <% @defect.modules.each do |spare_part| %>
+    <small><%= spare_part %></small>
+  <% end %>
 </div>
 
 <div class="row mt-5 mb-5 p-5 shadow bg-white">
@@ -36,6 +38,6 @@
 </div>
 
 <div class="list-inline-item mt-3">
-  <%= link_to 'Edit', edit_defect_path(@defect), class: 'text-decoration-none' %> <br>
+  <%= link_to 'Edit', edit_defect_path(@defect), class: 'text-decoration-none me-3' %> 
   <%= link_to 'Back', defects_path, class: 'text-decoration-none' %>
 </div>

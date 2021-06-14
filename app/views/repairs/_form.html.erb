@@ -12,18 +12,35 @@
   <% end %>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
-    <%= form.label :generation_id %>
-    <%= form.text_field :generation_id, class: 'form-control' %>
+    <%= form.label :generation %><br>
+
+    <div class="form-check">
+      <%= form.radio_button(:generation_id, '1', class: 'form-check-input') %>
+      <%= form.label :generation_5 %>
+    </div>
+
+    <div class="form-check">
+      <%= form.radio_button(:generation_id, '2', class: 'form-check-input') %>
+      <%= form.label :generation_6 %>
+    </div>
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
-    <%= form.label :phone_id %>
-    <%= form.text_field :phone_id, class: 'form-control' %>
+    <%= form.label :phone %>
+
+    <div class="form-check">
+      <%= form.radio_button(:phone_id, '1', class: 'form-check-input') %>
+      <%= form.label :phone_1 %>
+    </div>
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
     <%= form.label :defect_id %>
-    <%= form.text_field :defect_id, class: 'form-control' %>
+
+    <div class="form-check">
+      <%= form.radio_button(:defect_id, '1', class: 'form-check-input') %>
+      <%= form.label :defect_1 %>
+    </div>
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
@@ -99,8 +116,14 @@
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">
-    <%= form.label :videos %>
-    <%= form.text_field :videos, class: 'form-control' %>
+    <%= form.label "Change ipnone repair videos", class: 'form-label mb-3' %><br>
+    <%= form.file_field :videos, multiple: true, type: 'file', class: 'form-control' %>
+
+    <div class="mt-5">
+      <% if repair.videos? %>
+        <%= video_tag(repair.videos, width: '340', height: '180', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+      <% end %>
+    </div>
   </div>
 
   <div class="mb-3 card shadow mt-5 p-5 col-10">

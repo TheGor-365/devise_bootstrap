@@ -52,8 +52,8 @@ class RepairsController < ApplicationController
 
   def repair_params
     params.require(:repair).permit(
-      :phones_id,
       :generation_id,
+      :phone_id,
       :defect_id,
       :title,
       :spare_part,

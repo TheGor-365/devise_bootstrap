@@ -21,12 +21,12 @@
           <td class="align-middle"><%= phone.id %></td>
           <td class="align-middle"><%= phone.generation_id %></td>
           <td class="align-middle"><%= phone.model_title %></td>
-          <td>
+          <td class="align-middle">
             <% phone.images.each do |image| %>
               <%= image_tag(image.url, width: '30', class: 'rounded') %>
             <% end %>
           </td>
-          <td>
+          <td class="align-middle">
             <% phone.videos.each do |video| %>
               <%= video_tag(video.url, width: '40', height: '40', controls: true, class: 'rounded') %>
             <% end %>
