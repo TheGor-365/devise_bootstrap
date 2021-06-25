@@ -1,56 +1,57 @@
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-1"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
-</div>
+<div class="container pt-5 pb-5">
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Generation <%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @mod.generation_id %>
-</div>
-
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Phone <%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @mod.phone_id %>
-</div>
-
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Model <%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @mod.model_id %>
-</div>
-
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong></span></span></p>
-  <%= @mod.name %>
-</div>
-
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong></span></span></p>
-  <%= @mod.manufacturer %>
-</div>
-
-<div class="row p-5 shadow bg-white">
-  <span class="display-4 mb-3">Module Photos | <span class="text-muted display-6 align-middle"><%= @mod.name %></span></span>
-  <br>
-
-  <% @mod.images.each do |image| %>
-    <div class="col text-center mb-5">
-      <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
-    </div>
-  <% end %>
-</div>
-
-<div class="row mt-5 p-5 mb-4 bg-white shadow">
-  <span class="display-6 mb-3">Modules videos</span>
-
-  <% @mod.videos.each do |video| %>
-    <small class="text-muted mb-5"><%= video.identifier %></small>
-  <% end %>
-
-  <div class="col">
-    <%= video_tag(@mod.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-1"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
   </div>
-</div>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Edit', edit_mod_path(@mod), class: 'text-decoration-none me-3' %>
-  <%= link_to 'Back', mods_path, class: 'text-decoration-none' %>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>Generation id</strong> | <%= @mod.generation_id %></span></span></p>
+  </div>
+
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>Phone id</strong> | <%= @mod.phone_id %></span></span></p>
+  </div>
+
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>Model id</strong>  | <%= @mod.model_id %></span></span></p>
+  </div>
+
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong> | <%= @mod.name %></span></span></p>
+  </div>
+
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6"><%= @mod.name %> | <span class="text-muted display-6 align-middle"><strong>Manufacturers</strong></span></span></p><br>
+    <% @mod.manufacturers.each_with_index do |manufacturer, index| %>
+      <small class="text-muted"><%= "#{index + 1}. #{manufacturer}" %></small>
+    <% end %>
+  </div>
+
+  <div class="row p-5 shadow bg-white">
+    <span class="display-4 mb-3"><%= @mod.name %> | <span class="text-muted display-6 align-middle">Module Photos</span></span>
+    <br>
+
+    <% @mod.images.each do |image| %>
+      <div class="col text-center mb-5">
+        <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row mt-5 p-5 mb-4 bg-white shadow">
+    <span class="display-6 mb-3">Modules videos</span>
+
+    <% @mod.videos.each do |video| %>
+      <small class="text-muted mb-5"><%= video.identifier %></small>
+    <% end %>
+
+    <div class="col">
+      <%= video_tag(@mod.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') if @mod.videos.present? %>
+    </div>
+  </div>
+
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Edit', edit_mod_path(@mod), class: 'text-decoration-none me-3' %>
+    <%= link_to 'Back', mods_path, class: 'text-decoration-none' %>
+  </div>
 </div>

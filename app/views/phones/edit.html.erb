@@ -1,10 +1,12 @@
-<div class="card shadow p-4 col-10">
-  <h1 class="display-6">Editing <span class="text-muted"><%= @phone.model_title %></span></h1>
-</div>
+<div class="container pt-5 pb-5">
+  <div class="card shadow p-4 col-10">
+    <h1 class="display-6">Editing <span class="text-muted"><%= @phone.model_title %></span></h1>
+  </div>
 
-<%= render 'form', phone: @phone %>
+  <%= render 'form', phone: @phone %>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Show', @phone, class: 'text-decoration-none me-3' %>
-  <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Show', @phone, class: 'text-decoration-none me-3' %>
+    <%= link_to 'Back', phones_path, class: 'text-decoration-none' %>
+  </div>
 </div>

@@ -1,20 +1,23 @@
-<h5 class="mb-3">Record a new video</h5>
+<div class="container pt-5 pb-5">
+  <h5 class="mb-3">Record a new video</h5>
 
-<div class="btn-group btn-group-sm mb-3" role="group" aria-label="video recording">
+  <div class="btn-group btn-group-sm mb-3" role="group" aria-label="video recording">
 
-  <button id="start_record" type="button" class="btn btn-danger">Start record</button>
-  <button id="stop_record" type="button" class="btn btn-success">Stop record</button>
+    <button id="start_record" type="button" class="btn btn-danger">Start record</button>
+    <button id="stop_record" type="button" class="btn btn-success">Stop record</button>
+  </div>
+
+  <div>
+    <%#= video_tag id: 'live', width: '300', height: '200', autoplay: true, muted: true, class: 'border rounded' %>
+    <video id='live', height="200", width="300", class="border rounded" autoplay muted></video>
+  </div>
+
+  <div>
+    <%#= video_tag id: 'live', width: '300', height: '200', autoplay: true, muted: true, class: 'border rounded' %>
+    <video id='playback', height="200", width="300", class="border rounded" controls></video>
+  </div>
 </div>
 
-<div>
-  <%#= video_tag id: 'live', width: '300', height: '200', autoplay: true, muted: true, class: 'border rounded' %>
-  <video id='live', height="200", width="300", class="border rounded" autoplay muted></video>
-</div>
-
-<div>
-  <%#= video_tag id: 'live', width: '300', height: '200', autoplay: true, muted: true, class: 'border rounded' %>
-  <video id='playback', height="200", width="300", class="border rounded" controls></video>
-</div>
 
 <script type="text/javascript">
   (async () => {

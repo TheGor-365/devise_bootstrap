@@ -1,7 +1,10 @@
-<div class="card shadow p-4 col-8">
-  <h4 class="mb-5">New Article</h4>
+<div class="container pt-5 pb-5">
 
-  <%= render 'form', article: @article %>
+  <div class="card shadow p-4 col-8">
+    <h4 class="mb-5">New Article</h4>
 
-  <%= link_to 'Back', articles_path, class: 'text-decoration-none' %>
+    <%= render 'form', article: @article %>
+
+    <%= link_to 'Back', articles_path, class: 'text-decoration-none' %>
+  </div>
 </div>

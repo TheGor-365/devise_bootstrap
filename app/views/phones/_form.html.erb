@@ -38,14 +38,7 @@
     <div class="mb-3">
       <%= form.label "Change #{phone.model_title} images", class: 'form-label mb-3' %><br>
       <%= form.file_field :images, id: 'new-images-field', type: 'file', multiple: true, class: 'form-control' %>
-
-      <%# if phone.images_cache.size > 1 %>
-        <%# phone.images_cache.each do |image_cache| %>
-          <%#= form.hidden_field :image_cache %>
-        <%# end %>
-      <%# else %>
-        <%= form.hidden_field :images_cache %>
-      <%# end %>
+      <%= form.hidden_field :images_cache %>
     </div>
 
     <div class="mt-3 mb-3">

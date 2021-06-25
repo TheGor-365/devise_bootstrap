@@ -1,10 +1,13 @@
-<div class="card shadow p-4 col-10">
-  <h1 class="display-6">Editing Model <span class="text-muted"><%= @model.name %></h1>
-</div>
+<div class="container pt-5 pb-5">
 
-<%= render 'form', model: @model %>
+  <div class="card shadow p-4 col-10">
+    <h1 class="display-6">Editing Model <span class="text-muted"><%= @model.name %></h1>
+  </div>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Show', @model, class: 'text-decoration-none me-3' %>
-  <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+  <%= render 'form', model: @model %>
+
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Show', @model, class: 'text-decoration-none me-3' %>
+    <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+  </div>
 </div>

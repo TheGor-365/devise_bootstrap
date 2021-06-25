@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_161528) do
   create_table "models", force: :cascade do |t|
     t.string "generation_id"
     t.string "phone_id"
-    t.string "name"
+    t.string "title"
     t.string "images", default: [], array: true
     t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_161528) do
     t.string "phone_id"
     t.string "model_id"
     t.string "name"
-    t.string "manufacturer"
+    t.string "manufacturers", default: [], array: true
     t.string "images", default: [], array: true
     t.string "videos", default: [], array: true
     t.datetime "created_at", precision: 6, null: false

@@ -1,43 +1,46 @@
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-1"><%= @defect.phone_id %> | <span class="text-muted display-6 align-middle"><strong>info</strong></span></span></p>
-</div>
+<div class="container pt-5 pb-5">
 
-<div class="row mt-5 mb-2 p-5 shadow bg-white">
-  <span class="display-6 mb-3">Broken modules</span>
-  <% @defect.modules.each do |spare_part| %>
-    <small><%= spare_part %></small>
-  <% end %>
-</div>
-
-<div class="row mt-5 mb-5 p-5 shadow bg-white">
-  <span class="display-6 mb-3">Description</span>
-  <%= @defect.description %>
-</div>
-
-<div class="row p-5 shadow bg-white">
-  <span class="display-6 mb-5">Broken modules photos | <span class="text-muted display-6 align-middle"><%= @defect.phone_id %></span></span>
-  <br>
-
-  <% @defect.images.each do |image| %>
-    <div class="col text-center mb-5">
-      <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
-    </div>
-  <% end %>
-</div>
-
-<div class="row mt-5 p-5 mb-4 bg-white shadow">
-  <span class="display-6 mb-3">Videos</span>
-
-  <% @defect.videos.each do |video| %>
-    <small class="text-muted mb-5"><%= video.identifier %></small>
-  <% end %>
-
-  <div class="col">
-    <%= video_tag(@defect.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-1"><%= @defect.phone_id %> | <span class="text-muted display-6 align-middle"><strong>info</strong></span></span></p>
   </div>
-</div>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Edit', edit_defect_path(@defect), class: 'text-decoration-none me-3' %> 
-  <%= link_to 'Back', defects_path, class: 'text-decoration-none' %>
+  <div class="row mt-5 mb-2 p-5 shadow bg-white">
+    <span class="display-6 mb-3">Broken modules</span>
+    <% @defect.modules.each do |spare_part| %>
+      <small><%= spare_part %></small>
+    <% end %>
+  </div>
+
+  <div class="row mt-5 mb-5 p-5 shadow bg-white">
+    <span class="display-6 mb-3">Description</span>
+    <%= @defect.description %>
+  </div>
+
+  <div class="row p-5 shadow bg-white">
+    <span class="display-6 mb-5">Broken modules photos | <span class="text-muted display-6 align-middle"><%= @defect.phone_id %></span></span>
+    <br>
+
+    <% @defect.images.each do |image| %>
+      <div class="col text-center mb-5">
+        <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row mt-5 p-5 mb-4 bg-white shadow">
+    <span class="display-6 mb-3">Videos</span>
+
+    <% @defect.videos.each do |video| %>
+      <small class="text-muted mb-5"><%= video.identifier %></small>
+    <% end %>
+
+    <div class="col">
+      <%= video_tag(@defect.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+    </div>
+  </div>
+
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Edit', edit_defect_path(@defect), class: 'text-decoration-none me-3' %>
+    <%= link_to 'Back', defects_path, class: 'text-decoration-none' %>
+  </div>
 </div>

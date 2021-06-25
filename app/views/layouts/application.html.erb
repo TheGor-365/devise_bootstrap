@@ -22,20 +22,18 @@
     </header>
 
     <% if notice.present? %>
-    <div class="container alert alert-success">
-      <%= notice %>
-    </div>
+      <div class="container alert alert-success">
+        <%= notice %>
+      </div>
     <% end %>
 
     <% if alert.present? %>
-    <div class="container alert alert-danger">
-      <%= alert %>
-    </div>
+      <div class="container alert alert-danger">
+        <%= alert %>
+      </div>
     <% end %>
 
-    <div class="container pt-5 pb-5">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
   </body>
 </html>

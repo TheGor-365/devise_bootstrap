@@ -1,23 +1,42 @@
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-1"><%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
-</div>
+<div class="container pt-5 pb-5">
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Generation <%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @model.generation_id %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-1"><%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Phone <%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @model.phone_id %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Generation id | <span class="text-muted display-6 align-middle"><strong><%= @model.generation_id %></strong></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6"><%= @model.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong></span></span></p>
-  <%= @model.name %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Phone id | <span class="text-muted display-6 align-middle"><strong><%= @model.phone_id %></strong></span></span></p>
+  </div>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Edit', edit_model_path(@model), class: 'text-decoration-none me-3' %>
-  <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+  <div class="row p-5 shadow bg-white">
+    <span class="display-4 mb-5"><%= @model.name %> | <span class="text-muted display-6 align-middle">Photos</span></span>
+    <br>
+
+    <% @model.images.each do |image| %>
+      <div class="col text-center mb-5">
+        <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row mt-5 p-5 mb-4 bg-white shadow">
+    <span class="display-4 mb-3"><%= @model.name %> | <span class="text-muted display-6 align-middle">Videos</span></span>
+
+    <% @model.videos.each do |video| %>
+      <small class="text-muted mb-5"><%= video.identifier %></small>
+    <% end %>
+
+    <div class="col">
+      <%= video_tag(@model.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+    </div>
+  </div>
+
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Edit', edit_model_path(@model), class: 'text-decoration-none me-3' %>
+    <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+  </div>
 </div>

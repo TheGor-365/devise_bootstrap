@@ -1,7 +1,10 @@
-<div class="card shadow p-4 col-10">
-  <h4 class="display-3">New Model</h4>
+<div class="container pt-5 pb-5">
 
-  <%= render 'form', model: @model %>
+  <div class="card shadow p-4 col-10">
+    <h4 class="display-3">New Model</h4>
 
-  <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+    <%= render 'form', model: @model %>
+
+    <%= link_to 'Back', models_path, class: 'text-decoration-none' %>
+  </div>
 </div>

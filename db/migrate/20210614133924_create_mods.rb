@@ -5,7 +5,7 @@ class CreateMods < ActiveRecord::Migration[6.1]
       t.string :phone_id
       t.string :model_id
       t.string :name
-      t.string :manufacturer
+      t.string :manufacturers, array: true, default: []
       t.string :images, array: true, default: []
       t.string :videos, array: true, default: []
 

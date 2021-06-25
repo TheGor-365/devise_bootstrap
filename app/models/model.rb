@@ -7,6 +7,5 @@ class Model < ApplicationRecord
   belongs_to :phone
 
   has_many :mods
-  has_many :spare_parts
 
 end

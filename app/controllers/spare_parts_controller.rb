@@ -1,5 +1,7 @@
 class SparePartsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :set_spare_part, only: %i[ show edit update destroy ]
 
   def index
@@ -52,9 +54,10 @@ class SparePartsController < ApplicationController
     params.require(:spare_part).permit(
       :generation_id,
       :phone_id,
-      :module_id,
+      :mod_id,
       :name,
       :manufacturer,
+      :images_cache,
       { images: [] },
       { videos: [] }
     )

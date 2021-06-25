@@ -1,5 +1,7 @@
 class ModelsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :set_model, only: %i[ show edit update destroy ]
 
   def index
@@ -52,7 +54,8 @@ class ModelsController < ApplicationController
     params.require(:model).permit(
       :generation_id,
       :phone_id,
-      :name,
+      :images_cache,
+      :title,
       { images: [] },
       { videos: [] }
     )

@@ -1,56 +1,53 @@
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-1"><%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
-</div>
+<div class="container pt-5 pb-5">
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-1">Spare part <%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>show room</strong></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Generation <%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @spare_part.generation_id %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Generation id | <span class="text-muted display-6 align-middle"><strong><%= @spare_part.name %> | </strong><%= @spare_part.generation_id %></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Phone <%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @spare_part.phone_id %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Phone id | <span class="text-muted display-6 align-middle"><strong><%= @spare_part.name %></strong> | <%= @spare_part.phone_id %></span></span></p>
+  </div>
+  
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Module id | <span class="text-muted display-6 align-middle"><strong><%= @spare_part.name %></strong> | <%= @spare_part.mod_id %></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6">Module <%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>id</strong></span></span></p>
-  <%= @spare_part.mod_id %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Spare part name | <span class="text-muted display-6 align-middle"><strong><%= @spare_part.name %></strong></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6"><%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong></span></span></p>
-  <%= @spare_part.name %>
-</div>
+  <div class="row p-5 shadow bg-white mb-5">
+    <p class="align-middle"><span class="display-6">Spare part <%= @spare_part.name %> manufacturer | <span class="text-muted display-6 align-middle"><strong><%= @spare_part.manufacturer %></strong></span></span></p>
+  </div>
 
-<div class="row p-5 shadow bg-white mb-5">
-  <p class="align-middle"><span class="display-6"><%= @spare_part.name %> | <span class="text-muted display-6 align-middle"><strong>name</strong></span></span></p>
-  <%= @spare_part.manufacturer %>
-</div>
+  <div class="row p-5 shadow bg-white">
+    <span class="display-6 mb-5">Spare part <%= @spare_part.name %> photos</span>
+    <br>
 
-<div class="row p-5 shadow bg-white">
-  <span class="display-4 mb-3">Module Photos | <span class="text-muted display-6 align-middle"><%= @spare_part.name %></span></span>
-  <br>
-
-  <% @spare_part.images.each do |image| %>
+    <% @spare_part.images.each do |image| %>
     <div class="col text-center mb-5">
       <%= image_tag(image.url, width: '300', class: 'rounded img-thumbnail shadow') %>
     </div>
-  <% end %>
-</div>
-
-<div class="row mt-5 p-5 mb-4 bg-white shadow">
-  <span class="display-6 mb-3">Modules videos</span>
-
-  <% @spare_part.videos.each do |video| %>
-    <small class="text-muted mb-5"><%= video.identifier %></small>
-  <% end %>
-
-  <div class="col">
-    <%= video_tag(@spare_part.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+    <% end %>
   </div>
-</div>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Edit', edit_spare_part_path(@spare_part), class: 'text-decoration-none me-3' %>
-  <%= link_to 'Back', spare_parts_path, class: 'text-decoration-none' %>
+  <div class="row mt-5 p-5 mb-4 bg-white shadow">
+    <span class="display-6 mb-5">Spare part <%= @spare_part.name %> videos</span>
+
+    <% @spare_part.videos.each do |video| %>
+    <small class="text-muted mb-5"><%= video.identifier %></small>
+    <% end %>
+
+    <div class="col">
+      <%= video_tag(@spare_part.videos, width: '640', height: '380', controls: true, class: 'rounded card p-1 shadow mx-auto mb-5') %>
+    </div>
+  </div>
+
+  <div class="list-inline-item mt-3">
+    <%= link_to 'Edit', edit_spare_part_path(@spare_part), class: 'text-decoration-none me-3' %>
+    <%= link_to 'Back', spare_parts_path, class: 'text-decoration-none' %>
+  </div>
 </div>

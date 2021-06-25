@@ -1,5 +1,7 @@
 class ModsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :set_mod, only: %i[ show edit update destroy ]
 
   def index
@@ -54,7 +56,8 @@ class ModsController < ApplicationController
       :phone_id,
       :model_id,
       :name,
-      :manufacturer,
+      :images_cache,
+      { manufacturers: [] },
       { images: [] },
       { videos: [] }
     )

@@ -1,10 +1,12 @@
-<div class="card shadow p-4 col-10">
-  <h1 class="display-6">Editing Spare Part  <span class="text-muted"><%= @spare_part.name %></h1>
-</div>
+<div class="container pt-5 pb-5">
+  <div class="card shadow p-4 col-10">
+    <h1 class="display-6">Editing Spare Part  <span class="text-muted"><%= @spare_part.name %></h1>
+    </div>
 
-<%= render 'form', spare_part: @spare_part %>
+    <%= render 'form', spare_part: @spare_part %>
 
-<div class="list-inline-item mt-3">
-  <%= link_to 'Show', @spare_part, class: 'text-decoration-none me-3' %>
-  <%= link_to 'Back', spare_parts_path, class: 'text-decoration-none' %>
+    <div class="list-inline-item mt-3">
+      <%= link_to 'Show', @spare_part, class: 'text-decoration-none me-3' %>
+      <%= link_to 'Back', spare_parts_path, class: 'text-decoration-none' %>
+    </div>
 </div>
